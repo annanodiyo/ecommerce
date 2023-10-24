@@ -17,34 +17,37 @@ function updateCartDisplay() {
     cart.items = savedCart; // Set cart items from the saved cart
     cartItems.innerHTML = ""; // Clear the cart display
     cart.total = 0;
+    const uniqueItems = new Map();
 
     cart.items.forEach((item) => {
-      //  response.forEach((product) => {
-      //   let description = product.description;
-      //   let title = product.title;
+      if (uniqueItems.has(item.id)) {
+        const existingItem = uniqueItems.get(item.id);
+        existingItem.quantity++;
+      } else {
+        uniqueItems.set(item.id, { ...item, quantity: 1 });
+      }
+    });
+    uniqueItems.forEach((item) => {
       const listItem = document.createElement("li");
       listItem.innerHTML = `
-          <div class="card">
-            <img src="${item.image}"  alt="...">
-            <div class="card-body">
-
-            <h5 class="card-title">${
-              item.title.length > 20
-                ? item.title.substring(0, 20).concat("...")
-                : item.title
-            }</h5>
-
-              <div class="product-price-container">
-                <h3 class="product-price">$${item.price.toFixed(2)}</h3>
-              </div>
-              </div>
-          </div>
+            <div class="card">
+                <img src = "${item.image} alt="...">
+                <div class="card-body">
+                <h5 class="card-title">${
+                  item.title.length > 20
+                    ? item.title.substring(0, 20).concat("...")
+                    : item.title
+                }</h5>
+                <div class = "product-price-container">
+                    <h3 class = "poduct-price">$$(item.price * item.quantity).toFixed(2)}</h3>
+                    <p>Quantity: ${item.quantity}</p>
+                </div>
+            </div>
+        </div>
         `;
       cartItems.appendChild(listItem);
-      cart.total += item.price;
+      cart.total += item.price * item.quantity;
     });
-
-    // });
 
     totalDisplay.textContent = `$${cart.total.toFixed(2)}`;
   }
