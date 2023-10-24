@@ -28,6 +28,9 @@ nav{
     flex:1;
     text-align: right;
 }
+.navbar>a{
+    cursor: pointer;
+}
 nav ul{
     display: inline-block;
     list-style-type: none;
@@ -41,12 +44,12 @@ a{
     color: #555;
     font-weight: 600;
 }
-/* .container{
-    max-width:1300px;
+.container{
+    max-width:100%;
     margin:auto;
     padding-left: 30px;
     padding-right: 30px;
-} */
+}
 .row{
     display: flex;
     flex-direction: row;
@@ -88,6 +91,7 @@ a{
     border-radius: 12px;
     /* transition: background 0.5s; */
 }
+
 .btn:hover{
     background: black;
 }
@@ -109,6 +113,9 @@ a{
     padding: 60px;
     margin: 40px;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .btns>input{
     width: 60%;
@@ -116,4 +123,15 @@ a{
     cursor:pointer;
     /* margin-top: 60px; */
     /* align-content: end; */
+}
+.btns>input:hover{
+    background: rgb(47, 47, 81);
+}
+/* cart page*/
+.cart-page{
+    margin: 80px auto;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="cart.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="#" alt="logo" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Account</a></li>
+          </ul>
+        </nav>
+        <img src="images/icon-cart.svg" alt="" />
+      </div>
+      <div class="cart">
+        <h2>Your Cart</h2>
+        <div class="items">
+          <ul id="cart-items"></ul>
+        </div>
+
+        <div class="cashout">
+          <p>Total Price: <span id="total-price">$0.00</span></p>
+        </div>
+      </div>
+    </div>
+    <script src="cart.js"></script>
+  </body>
+</html>
